@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Encriptador de Texto</title>
+        <link rel="stylesheet" href="reset/reset.css">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <h1>
+                <img class="logo_encriptador" src="Vector.png"  alt="Logo Alura">
+            </h1>
+        </header>
+
+        <main>
+            <section class="seccion_input_text">
+                <form>
+                    <textarea name="text_area_encriptar" id="txt_input" cols="79%" rows="10" placeholder="Ingrese el texto aqui" pattern="[a-z]"></textarea>
+                </form>
+                <div>
+                    <p class="mensaje_instrucciones">
+                        <span class="logo_info"><img class="logo_info" src="Vector_Info.png" alt="Logo Informativo"></span>
+                        Solo letras minusculas y sin acentos
+                    </p>
+                    <div class="contenedor_botones">
+                        <button class="btn boton_encriptar" onclick="encriptarTexto()">Encriptar</button>
+                        <button class="btn boton_desencriptar" onclick="desencriptarTexto()">Desencriptar</button>
+                    </div>
+                </div>
+            </section>
+            <section class="seccion_texto_output">
+                <div id="presentacion_inicial">
+                    <img src="Muñeco.png" alt="muñeco_buscador" class="imagen_munueco_buscador">
+                    <h2>Ningún mensaje fue encontrado</h2>
+                    <p class="mensaje_noencontrado">Ingrese el texto que desea encriptar o desencriptar</p>
+                </div>
+                <div id="contenedor_output">
+                    <textarea name="text_output" id="txt_output" cols="30" rows="10"></textarea>
+                    <button class="btn boton_desencriptar" id="btnCopiar">Copiar</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Desarrollado por Jorge Gomez</p>
+        </footer>
+
+        <script src="funciones.js"></script>        
+    </body>
+</html>

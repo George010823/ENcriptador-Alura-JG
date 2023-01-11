@@ -1,0 +1,224 @@
+body{
+    background: #f3f5fc;
+    font-family: 'Inter', sans-serif;
+}
+
+header{
+    margin-left: 2em;
+    padding: 20px 0;
+}
+
+main{
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    height: 70%;
+}
+
+.seccion_input_text{
+    width: 60%;
+    margin-left: 10%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.seccion_input_text textarea{
+    max-width: 600px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.5em;
+    color: #0A3871;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    resize: none;
+    text-transform: lowercase;
+}
+
+::placeholder{
+   color: #0A3871;
+}
+
+.mensaje_instrucciones{
+    font-size: 1em;
+    vertical-align: top;
+}
+
+.logo_info{
+    font-size: 2em;
+}
+
+.btn{
+    padding: 1.2em 6.5em;
+    border-radius: 24px;
+    font-size: 1em;
+    cursor: pointer;
+    border: 1px solid #0A3871;
+}
+
+.boton_encriptar{
+    color: #f3f5fc;
+    background: #0A3871;
+    border: 2px solid var(--d-blue-300);
+    transition: all 0.8s;
+}
+
+.boton_desencriptar{
+    box-sizing: border-box;
+    background: #D8DFE8;
+    border: 2px solid var(--d-blue-300);
+    transition: all 0.8s;
+}
+
+.seccion_texto_output{
+    background-color: #fff;
+    padding: 6em 2.5em;
+    margin: 0 auto;
+    border-radius: 32px;
+    text-align: center;
+    max-width: 280px;
+    margin-top: -70px;
+    box-shadow: 0px 12px 72px -14px rgb(0 0 0 / 28%);
+    -webkit-box-shadow: 0px 12px 72px -14px rgb(0 0 0 / 28%);
+    -moz-box-shadow: 0px 12px 72px -14px rgba(0, 0, 0, 0.28);
+}
+
+.imagen_munueco_buscador{
+    width: 90%;
+}
+
+h2{
+    line-height: 20px;
+}
+
+.seccion_texto_output #txt_output {
+    display: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    line-height: 1.4em;
+    color: var(--gray-400);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+    width: 100%;
+    height: 400px;
+}
+
+#btnCopiar{
+    display: none;
+}
+
+footer {
+    padding-top: 3em;
+    text-align: center;
+    color: var(--gray-300);
+    font-size: 0.6em;
+}
+/*TABLET*/
+@media screen and (max-width: 992px) {
+    main {
+        height: 75vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .seccion_input_text {
+        margin: 0;
+        width: 80%;
+    }
+
+    .seccion_input_text textarea {
+        max-width: 100%;
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 1.1em;
+        line-height: 1.6em;
+        color: var(--d-blue-300);
+        background-color: transparent;
+        border: none;
+        outline: none;
+        resize: none;
+    }
+
+    .btn {
+        padding: 1.5em 9em;
+        border-radius: 0.9rem;
+        font-size: 0.8em;
+    }
+
+    .contenedor_botones {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .seccion_texto_output{
+        max-width: 992px;
+        width: 70%;
+        margin: 0;
+        background-color: #fff;
+        padding: 1em 3em;
+    }
+
+    .seccion_texto_output img{
+        display: none;
+    }
+
+    .btn {
+        padding: 1.5em 9em;
+        border-radius: 0.9rem;
+        font-size: 0.8em;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    .btn {
+        padding: 1.3em 6em;
+        border-radius: 0.9rem;
+        font-size: 0.8em;
+    }
+}
+
+/*MOBILE*/
+@media screen and (max-width: 576px){
+    body {
+        overflow-x: hidden;
+    }
+    header {
+        margin-left: 1.5em;
+        margin-bottom: 4em;
+    }
+
+    main {
+        display: relative;
+        margin: 0 auto;
+        height: auto;
+    }
+
+    .seccion_input_text {
+        margin: 0;
+        width: 90%;
+    }
+
+    .btn {
+        padding: 1em 3.7em;
+        border-radius: 0.9rem;
+        font-size: 0.8em;
+    }
+
+    .seccion_texto_output {
+        max-width: 576px;
+        width: 65%;
+        margin: 0;
+        background-color: #fff;
+        padding: 1em 3em;
+    }
+}
