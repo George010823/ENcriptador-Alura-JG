@@ -139,3 +139,4 @@ document.getElementById("btnCopiar").onclick = function() {
         console.error('Error in copying text: ', err);
     });
 }
+
