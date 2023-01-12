@@ -1,43 +1,48 @@
+function init()
+{
+    document.getElementById("txt_input").focus();
+}
+
 var cadenaTextoLimpio;          
 var retorno = false;
 
 function encriptarTexto() {
-    document.getElementById("presentacion_inicial").style.display = "none";
-    document.getElementById("txt_output").style.display = "block";
-    document.getElementById("btnCopiar").style.display = "block";
-
+    init();
     var arrayCadenaEncriptar = [];
     cadenaTextoLimpio = document.getElementById("txt_input").value;
-    cadenaTextoLimpio = cadenaTextoLimpio.toLowerCase();
-    arrayCadenaEncriptar = cadenaTextoLimpio.split("");
 
-    validarCaracteresEspeciales(arrayCadenaEncriptar);
+    if(cadenaTextoLimpio.trim() === ""){
+        alert("NO HA ESCRITO UN MENSAJE PARA CIFRAR.")
+    }else{
+        cadenaTextoLimpio = cadenaTextoLimpio.toLowerCase();
+        arrayCadenaEncriptar = cadenaTextoLimpio.split("");
 
-    if(retorno){
-        fnEncriptarTexto(arrayCadenaEncriptar);
+        validarCaracteresEspeciales(arrayCadenaEncriptar);
+
+        if(retorno){
+            document.getElementById("presentacion_inicial").style.display = "none";
+            document.getElementById("txt_output").style.display = "block";
+            document.getElementById("btnCopiar").style.display = "block";
+
+            fnEncriptarTexto(arrayCadenaEncriptar);
+        }
     }
 }
 
 function validarCaracteresEspeciales(caracteres){
 
-    var replacements = ['@', '/', '+', '-', '*', ':', '.', ',', ';', '_'];
+    var replacements = ['á', 'é', 'í', 'ó', 'ú'];
 
-    replacements.forEach(function(element){
-        if(caracteres.includes(element)){
-            alert("Pailas");
-        }else
-            return retorno = true;
-    });
-}
-
-function desencriptarTexto(){
-    document.getElementById("presentacion_inicial").style.display = "none";
-    document.getElementById("txt_output").style.display = "block";
-    document.getElementById("btnCopiar").style.display = "block";
-    
-    cadenaTextoLimpio = document.getElementById("txt_input").value;
-
-    fnDesencriptarTexto(cadenaTextoLimpio);
+    for(var i = 0; i < replacements.length; i++){
+        if(caracteres.includes(replacements[i])){
+            alert("NO SE PERMITEN PALABRAS ACENTUADAS.");
+            retorno = false;
+            break;
+        }else{
+            retorno = true;
+        }
+    }
+    return retorno;
 }
 
 function fnEncriptarTexto(cadena){
@@ -64,31 +69,56 @@ function mostrarTextoEncriptado(cadena){
     textoArea.innerText = cadena.replace(/,/g, "");
 }
 
+function desencriptarTexto(){
+    init();
+    cadenaTextoLimpio = document.getElementById("txt_input").value;
+
+    if(cadenaTextoLimpio.trim() === ""){
+        alert("NO HA ESCRITO UN MENSAJE PARA DESCIFRAR.")
+    }else{    
+        cadenaTextoLimpio = cadenaTextoLimpio.toLowerCase();
+        fnDesencriptarTexto(cadenaTextoLimpio);
+    }
+}
+
 function fnDesencriptarTexto(cadena){
-    var cadenaDesencriptada;
+    var bandera = false;
 
     if(cadena.includes('ai')){
+        bandera = true;
         const re = /ai/gi;
-        cadenaDesencriptada = cadena.replace(re, 'a'); 
+        cadena = cadena.replace(re, 'a'); 
     }
     if(cadena.includes('enter')){
+        bandera = true;
         const re = /enter/gi;
-        cadenaDesencriptada = cadenaDesencriptada.replace(re, 'e');
+        cadena = cadena.replace(re, 'e');
     }
     if(cadena.includes('imes')){
+        bandera = true;
         const re = /imes/gi;
-        cadenaDesencriptada = cadenaDesencriptada.replace(re, 'i');
+        cadena = cadena.replace(re, 'i');
     }
     if(cadena.includes('ober')){
+        bandera = true;
         const re = /ober/gi;
-        cadenaDesencriptada = cadenaDesencriptada.replace(re, 'o');
+        cadena = cadena.replace(re, 'o');
     }
     if(cadena.includes('ufat')){
+        bandera = true;
         const re = /ufat/gi;
-        cadenaDesencriptada = cadenaDesencriptada.replace(re, 'u');
+        cadena = cadena.replace(re, 'u');
     } 
 
-    mostrarTextoDesencriptado(cadenaDesencriptada);
+    if(bandera){
+        document.getElementById("presentacion_inicial").style.display = "none";
+        document.getElementById("txt_output").style.display = "block";
+        document.getElementById("btnCopiar").style.display = "block";
+        
+        mostrarTextoDesencriptado(cadena);
+    }else{
+        alert("EL MENSAJE NO CONTIENE PARAMETROS DE DESENCRIPCION.")
+    }
 }
 
 function mostrarTextoDesencriptado(cadena){
@@ -98,6 +128,7 @@ function mostrarTextoDesencriptado(cadena){
 }
 
 document.getElementById("btnCopiar").onclick = function() {
+    init();
     var text = document.getElementById("txt_output").value;
 
     navigator.clipboard.writeText(text)
