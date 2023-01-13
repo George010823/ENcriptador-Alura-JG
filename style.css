@@ -91,6 +91,12 @@ main{
 }
 
 h2{
+    line-height: 30px;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+p{
     line-height: 20px;
 }
 
@@ -119,33 +125,65 @@ footer {
     color: var(--gray-300);
     font-size: 0.6em;
 }
+
+
 /*TABLET*/
 @media screen and (max-width: 992px) {
+    body{
+        position: relative;
+        width: 688px;
+        height: 1001px;
+    }
+
+    header{
+        position: absolute;
+        width: 31.09px;
+        height: 50.58px;
+        left: 40px;
+        top: 73.42px;
+    }
+    
     main {
-        height: 75vh;
+        top: 240px;
+        width: 688px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 40px;
-    }
+    } 
 
     .seccion_input_text {
+        margin-top: 100px;
         margin: 0;
         width: 80%;
     }
 
-    .seccion_input_text textarea {
-        max-width: 100%;
-        font-family: 'Inter', sans-serif;
-        font-weight: 700;
-        font-size: 1.1em;
-        line-height: 1.6em;
-        color: var(--d-blue-300);
-        background-color: transparent;
-        border: none;
-        outline: none;
-        resize: none;
+    .seccion_input_text form{
+        margin: 500px 0 100px 0;
+    }
+
+    .seccion_input_text textarea{
+        max-width: 688px;
+        height: 10em;
+        top: 240px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 150%;
+    }
+
+    .contenedor_botones{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 0px;
+        gap: 24px;
+        width: 688px;
+        height: 67px;
+        top: 870px;
+        margin: 15px 0 0 0;
     }
 
     .btn {
@@ -154,29 +192,62 @@ footer {
         font-size: 0.8em;
     }
 
-    .contenedor_botones {
-        display: flex;
-        justify-content: space-between;
-    }
-
     .seccion_texto_output{
+        display: inline-block;
         max-width: 992px;
-        width: 70%;
-        margin: 0;
+        width: 688px;
+        height: 133px;
+        left: 40px;
+        top: 1001px;
         background-color: #fff;
-        padding: 1em 3em;
+        margin: 0 0 0 8em;
+        padding: 32px;
+        gap: 32px;
+        box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+        border-radius: 32px;
     }
 
     .seccion_texto_output img{
         display: none;
     }
 
-    .btn {
-        padding: 1.5em 9em;
-        border-radius: 0.9rem;
-        font-size: 0.8em;
+    h2, p{
+        text-align: center;
+        margin: 0.5em 0 0.5em 0;
+      }
+    
+    .mensaje_instrucciones{
+        text-align: left;
+    }
+
+    #contenedor_output{
+        position: relative;
+    }
+
+    .seccion_texto_output #txt_output {
+        width: 100%;
+        height: 100px;
+        overflow-y: scroll;
     }
     
+    #btnCopiar{
+        position: absolute;
+        box-sizing: border-box;
+        display: none;
+        text-align: center;
+        padding: 24px;
+        width: 624px;
+        height: 67px;
+        border: 1px solid #0A3871;
+        border-radius: 24px;
+        right: 30px;
+		bottom: -120px;
+    }
+
+    footer {
+        display: block;
+        margin: 35em 0 0 10em;
+    }
 }
 
 @media screen and (max-width: 768px) {
